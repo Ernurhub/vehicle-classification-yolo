@@ -14,6 +14,7 @@
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.x-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)](https://pytorch.org/)
 [![Accuracy](https://img.shields.io/badge/Accuracy-95%25-2ECC71?style=for-the-badge&logo=checkmarx&logoColor=white)]()
 [![Kaggle](https://img.shields.io/badge/Trained%20on-Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white)](https://www.kaggle.com/)
+[![Roboflow](https://img.shields.io/badge/Dataset-Roboflow-6706CE?style=for-the-badge&logo=roboflow&logoColor=white)](https://universe.roboflow.com/)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)]()
 
 </div>
@@ -27,6 +28,7 @@
 - [Стек технологий](#-стек-технологий)
 - [Архитектура системы](#-архитектура-системы)
 - [Результаты обучения](#-результаты-обучения)
+- [Датасеты](#-датасеты)
 - [Инструкция по запуску](#-инструкция-по-запуску)
 - [Структура проекта](#-структура-проекта)
 - [Команда](#-команда)
@@ -68,6 +70,7 @@
 | **Deep Learning** | ![PyTorch](https://img.shields.io/badge/-PyTorch%202.x-EE4C2C?logo=pytorch&logoColor=white) | Бэкенд обучения нейросетей |
 | **Компьютерное зрение** | ![OpenCV](https://img.shields.io/badge/-OpenCV-5C3EE8?logo=opencv&logoColor=white) | Обработка изображений и видео |
 | **Обучение** | ![Kaggle](https://img.shields.io/badge/-Kaggle%20GPU-20BEFF?logo=kaggle&logoColor=white) | Удалённые GPU-серверы для тренировки |
+| **Датасеты** | ![Roboflow](https://img.shields.io/badge/-Roboflow-6706CE?logo=roboflow&logoColor=white) | Платформа для хранения и аугментации данных |
 
 </div>
 
@@ -152,6 +155,31 @@ weights/
 ├── best.pt     # Веса с лучшей эпохой (рекомендуется для инференса)
 └── last.pt     # Веса последней эпохи (для дообучения)
 ```
+
+---
+
+## 🗃️ Датасеты
+
+Оба датасета получены с платформы **[Roboflow Universe](https://universe.roboflow.com/)** — открытого хранилища размеченных датасетов для задач компьютерного зрения.
+
+| Задача | Датасет | Источник | Назначение |
+|---|---|---|---|
+| 🔍 **Детекция ТС** | Car Object Detection | [Roboflow Universe ↗](https://universe.roboflow.com/object-detection-mtxp2/car-object-detection-vw2le) | Обнаружение автомобилей на кадре, получение bounding box |
+| 🏷️ **Классификация марок** | Stanford Jank | [Roboflow Universe ↗](https://universe.roboflow.com/milenkos-workspace-9ro3m/stanford-jank) | Определение марки автомобиля по кропу |
+
+### Подробнее о датасетах
+
+**🔍 Car Object Detection** — датасет для детекции транспортных средств:
+- Содержит размеченные изображения автомобилей в условиях реального трафика
+- Разметка в формате YOLO (bounding boxes)
+- Используется для обучения **первого этапа** пайплайна
+
+**🏷️ Stanford Jank** — датасет для классификации марок:
+- Основан на [Stanford Cars Dataset](https://ai.stanford.edu/~jkrause/cars/car_dataset.html) — одном из эталонных датасетов для fine-grained классификации автомобилей
+- Содержит изображения автомобилей с разметкой по маркам/моделям
+- Используется для обучения **второго этапа** пайплайна — классификатора марок
+
+> 💡 Оба датасета доступны для загрузки напрямую через Roboflow API или веб-интерфейс по ссылкам выше.
 
 ---
 
