@@ -125,7 +125,7 @@
 | **mAP@50-95** | **0.676** | Усреднённая mAP по порогам IoU |
 | **Precision** | **0.872** | Точность — доля верно найденных объектов |
 | **Recall** | **0.828** | Полнота — доля обнаруженных объектов |
-| **Эпох** | 50 | Лучшая эпоха — 47 (`best.pt`) |
+| **Эпох** | 50 | Лучшая эпоха — 47 |
 | **Платформа** | Kaggle | NVIDIA GPU (T4 / P100) |
  
 ### Графики обучения детектора <img width="2084" height="642" alt="detect_training" src="https://github.com/user-attachments/assets/8e7a1853-5f44-4e5a-afb6-0e3b7a1ebb64" />
@@ -142,7 +142,7 @@
 | **Top-1 Accuracy** | **95.8%** | Доля верных предсказаний (первое место) |
 | **Top-5 Accuracy** | **99.9%** | Верный класс среди пяти наиболее вероятных |
 | **Val Loss (min)** | **0.163** | Минимальный loss на валидации |
-| **Эпох** | 31 | Лучшая эпоха — 23 (`best.pt`) |
+| **Эпох** | 31 | Лучшая эпоха — 23 |
 | **Платформа** | Kaggle | NVIDIA GPU (T4 / P100) |
  
  <img width="1484" height="642" alt="cls_training" src="https://github.com/user-attachments/assets/75f8982a-c5d4-4390-88b3-2cba0059a0d7" />
@@ -179,135 +179,16 @@
 
 ## Инструкция по запуску
 
-### Требования
-
-- Python **3.10+**
-- pip / conda
-- (Опционально) NVIDIA GPU + CUDA для ускорения
-
-### 1. Клонирование репозитория
-
-```bash
-git clone https://github.com/<ваш-username>/patrol-ai.git
-cd patrol-ai
-```
-
-### 2. Установка зависимостей
-
-```bash
-pip install ultralytics opencv-python
-```
-
-Для расширенной установки (Jupyter, визуализация):
-
-```bash
-pip install ultralytics opencv-python matplotlib pandas tqdm
-```
-
-### 3. Загрузка весов модели
-
-Скачайте файл `best.pt` и поместите его в директорию `weights/`:
-
-```
-weights/
-└── best.pt   ← поместите сюда
-```
-
-> Ссылка на веса: [Google Drive / Kaggle / Releases](#) *(добавьте актуальную ссылку)*
-
-### 4. Запуск детекции
-
-**На одном изображении:**
-
-```python
-from ultralytics import YOLO
-import cv2
-
-# Загрузка модели
-model = YOLO("weights/best.pt")
-
-# Инференс
-results = model("test_image.jpg")
-
-# Визуализация и сохранение
-results[0].save("output.jpg")
-```
-
-**На видеофайле или веб-камере:**
-
-```python
-from ultralytics import YOLO
-
-model = YOLO("weights/best.pt")
-
-# Видеофайл
-results = model("traffic_video.mp4", stream=True, save=True)
-
-# Веб-камера (source=0)
-results = model(source=0, stream=True, show=True)
-
-for r in results:
-    print(r.boxes)   # координаты и классы
-```
-
-**Через командную строку (CLI):**
-
-```bash
-# Изображение
-yolo predict model=weights/best.pt source=test_image.jpg
-
-# Видео
-yolo predict model=weights/best.pt source=traffic.mp4 save=True
-```
-
----
-
-## Структура проекта
-
-```
-patrol-ai/
-│
-├── weights/
-│   ├── best.pt             # Лучшие веса (инференс)
-│   └── last.pt             # Веса последней эпохи
-│
-├── data/
-│   ├── images/             # Обучающие/тестовые изображения
-│   └── labels/             # YOLO-разметка (*.txt)
-│
-├── runs/                   # Артефакты обучения (Ultralytics)
-│   └── train/
-│       ├── results.png
-│       ├── confusion_matrix.png
-│       └── PR_curve.png
-│
-├── detect.py               # Скрипт запуска детекции
-├── train.py                # Скрипт обучения модели
-├── requirements.txt        # Зависимости
-└── README.md               # Документация проекта
-```
-
 ---
 
 ## Команда
 
 | Роль | Имя |
 |---|---|
-| **Разработчик / Исследователь** | *[Ваше имя]* |
-| **Научный руководитель** | *[ФИО преподавателя]* |
-| **Учебное заведение** | *[Название университета]* |
-| **Год выполнения** | 2025 |
+| **Разработчик** | *Сарманов Ернур* |
+| **Руководитель практики** | *Садвакасов Рамазан Маратович* |
+| **Учебное заведение** | *ЕНУ* |
+| **Год выполнения** | 2026 |
 
 ---
 
-<div align="center">
-
-**АСОП-ГАИ** — учебный проект в рамках практики по специальности
-
-*Система разработана исключительно в образовательных целях.*
-
----
-
-*Если проект оказался полезным — поставьте звезду!*
-
-</div>
