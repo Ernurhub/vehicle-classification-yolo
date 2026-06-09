@@ -169,7 +169,7 @@
 - Используется для обучения **первого этапа** пайплайна
 
 **Stanford Jank** — датасет для классификации марок:
-- Основан на [Stanford Cars Dataset](https://ai.stanford.edu/~jkrause/cars/car_dataset.html) — одном из эталонных датасетов для fine-grained классификации автомобилей
+- Основан на [Stanford Cars Dataset](https://www.kaggle.com/datasets/jutrera/stanford-car-dataset-by-classes-folder) — одним из эталонных датасетов для классификации автомобилей
 - Содержит изображения автомобилей с разметкой по маркам/моделям
 - Используется для обучения **второго этапа** пайплайна — классификатора марок
 
