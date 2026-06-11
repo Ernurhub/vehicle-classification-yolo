@@ -136,6 +136,7 @@
 <details>
 ><summary><h2><a href='./theory_detect.md'>📘Теоритическая база</a></h2></summary>
 </details>
+
 ---
  
 ### Этап 2 - Классификация марок автомобилей
