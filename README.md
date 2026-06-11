@@ -146,7 +146,7 @@
 | **Эпох** | 31 | Лучшая эпоха - 23 |
 | **Платформа** | Kaggle | NVIDIA GPU (T4 / P100) |
  
- <img width="1484" height="642" alt="cls_training" src="https://github.com/user-attachments/assets/75f8982a-c5d4-4390-88b3-2cba0059a0d7" />
+<img width="405" height="325" alt="загрузка" src="https://github.com/user-attachments/assets/4c79eecb-391a-4848-ae1b-a4c1bf41dbc7" />
 
  
 > Левый график - динамика Top-1 и Top-5 Accuracy. Правый - train/val loss. Модель достигла 91% точности уже к 5-й эпохе и стабилизировалась выше 95% начиная с 18-й эпохи.
